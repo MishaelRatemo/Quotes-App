@@ -9,13 +9,13 @@ export class TopBarComponent implements OnInit {
 
   logo: string = 'assets/logo.png'
   time = new Date();
-  intervalId:any;
+  interval:any;
 
   constructor() { }
 
   
   ngOnInit() {
-      this.intervalId = setInterval(() => {
+      this.interval = setInterval(() => {
         this.time = new Date();
       },1000)
 
