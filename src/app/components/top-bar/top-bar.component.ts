@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopBarComponent implements OnInit {
 
+  logo: string = 'assets/logo.png'
+  time = new Date();
+  intervalId:any;
+
   constructor() { }
 
-  ngOnInit(): void {
+  
+  ngOnInit() {
+      this.intervalId = setInterval(() => {
+        this.time = new Date();
+      },1000)
+
   }
 
 }
