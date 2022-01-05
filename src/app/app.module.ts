@@ -9,6 +9,8 @@ import { QuoteFormComponent } from './components/quote-form/quote-form.component
 import { TimeCounterPipe } from './pipe/time-counter.pipe';
 import { HighesUpvoteHighlighterDirective } from './directives/highes-upvote-highlighter.directive';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { TopBarComponent } from './components/top-bar/top-bar.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
