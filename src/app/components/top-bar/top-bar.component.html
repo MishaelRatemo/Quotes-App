@@ -1,8 +1,8 @@
-<div class="bg-success p-4 text-center d-flex justify-content-between align-items-center">
+<div class="bg-success p-2 text-center d-flex justify-content-between align-items-center">
     <img [src]="logo" alt="Logo">
     <h1>Quote App </h1>
     <div class=" text-white fw-bolder rounded-3">
         <span>{{time |date: 'fullDate' }} </span> <br>
-        <span>{{ time |date: 'mediumTime'}}</span>
+        <span class=" bg-dark p-1  rounded-pill text-warning">{{ time |date: 'mediumTime'}}</span>
     </div>
 </div>
