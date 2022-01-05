@@ -1,19 +1,19 @@
 <h4>Add your quote</h4>
-<form (ngSubmit)="createQuote()" #quoteForm='ngForm'  class=" mb-4">
+<form [formGroup]="newQuoteForm" (ngSubmit)="createQuote()" #quoteForm='ngForm'  class=" mb-4">
     <label for="quote" class=" form-label"> Your quote</label>
-    <textarea name="quote" id="quote" [(ngModel)]="newQuote.quote" #quote='ngModel' class=" form-control" cols="10" rows="3"></textarea>
-    quote: {{newQuote.quote}} <br>
+    <textarea name="quote" id="quote" [(ngModel)]="newQuote.quote" #quote='ngModel' class=" form-control" cols="10" rows="3" required></textarea>
+    <!-- quote: {{newQuote.quote}} <br> -->
     <p [hidden]="quote.valid || quote.pristine" class='alert alert-danger' ></p>
 
     <label for="" class='form-label'>Quote Auther</label>
     <input type="text" class=" form-control"  id='quoteAuthor' name='quoteAuthor' [(ngModel)]='newQuote.quoteAuthor' #quoteAuthor='ngModel'>
-    author: {{newQuote.quoteAuthor}} <br>
+    <!-- author: {{newQuote.quoteAuthor}} <br> -->
     <label for="" class=" form-label"> Your Name</label>
     <input type="text" class="form-control" id='name' name="name" [(ngModel)]='newQuote.submittedBy' #name='ngModel'>
-    name: {{newQuote.submittedBy}} <br>
-    <label for="" class='form-label'> Choose date</label>
-    <input type="date" name="createdAt" id="date" [(ngModel)]='newQuote.createdAt' #createsAt='ngModel'>
-    date: {{newQuote.createdAt |date }} <br>
-    <input type="submit" value="Add quote" class="btn btn-info form-control w-25 ">
+    <!-- name: {{newQuote.submittedBy}} <br> -->
+    <!-- <label for="" class='form-label'> Choose date</label> -->
+    <input type="hidden" name="createdAt" id="date" [(ngModel)]='newQuote.createdAt' #createsAt='ngModel'>
+    <!-- date: {{newQuote.createdAt |date }} <br> -->
+    <input type="submit"  value="Add quote" class="btn btn-info form-control w-25 ">
 
 </form>

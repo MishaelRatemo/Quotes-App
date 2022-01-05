@@ -1,31 +1,34 @@
 <main class="container">
     <h2 class=" text-center p-2">Our Quotes</h2>
-    
-        <div *ngFor="let myQuote of quotes" id="qouteholder" class=' d-flex m-2 justify-content-between flex-md-nowrap flex-lg-nowrap flex-wrap'>
-            <button class=" btn btn-success"> <i class="fa fa-angle-up fa-2x" aria-hidden="true"></i> <br> <hr> Upvote <hr>  0</button>
-            <div >
-                
+
+    <div *ngFor="let myQuote of quotes; let i=index" id="qouteholder" class=' d-flex m-2 justify-content-between flex-md-nowrap flex-lg-nowrap flex-wrap'>
+        <button class=" btn btn-success" (click)="upvote(i)"> <i class="fa fa-angle-up fa-2x" aria-hidden="true"></i> <br>
+            <hr> Upvote
+            <hr> {{myQuote.upvotes}}
+        </button>
+        <div>
             <p> {{ myQuote.quote}} <i> <br> By {{myQuote.quoteAuthor}} </i> </p>
-            <p class=" d-flex justify-content-between p-1"> 
-                <!-- <span>Submitted by: {{myQuote.submittedBy}}</span> -->
-            <!-- <app-quote-details ></app-quote-details> -->
+            <!-- <p class=" d-flex justify-content-between p-1"> 
+
+                <span>Submitted by: {{myQuote.submittedBy}}</span>
 
                 <span>Submitted by: {{myQuote.submittedBy}} On {{ myQuote.createdAt | date:'mediumDate' }}</span>
                <span class="btn btn-danger"  >
                     <i class="fa fa-trash fa-2x btn-danger" aria-hidden="true"></i>
                </span>
-            </p>
+            </p> -->
+            <button (click)='showHideQuoteDetails(i)' class=" btn text-primary">Details...</button>
+            <app-quote-details *ngIf='myQuote.quoteDetails' [myquote]="myQuote" (isExpired)="deleteQuote($event,i)">
+            </app-quote-details>
 
-            
-            </div>
-            <button class=" btn btn-secondary">-1 <hr> Downvote <br><i class="fa fa-angle-down fa-2x" aria-hidden="true"></i></button>
         </div>
+        <button class=" btn btn-secondary" (click)="downvote(i)">{{countDownvotes}}
+            <hr> Downvote <br><i class="fa fa-angle-down fa-2x" aria-hidden="true"></i>
+        </button>
+    </div>
 
-        <div>
-            <app-quote-form (addNewQuote)="addQuote($event)"></app-quote-form>
+    <div>
+        <app-quote-form (addNewQuote)="addQuote($event)"></app-quote-form>
+    </div>
 
-            
-        </div>
-        
 </main>
-

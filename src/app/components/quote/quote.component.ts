@@ -10,16 +10,8 @@ import { MyquotesService } from 'src/app/services/myquotes.service';
 export class QuoteComponent implements OnInit {
 
   quotes : Quot[];
-
-
-  // deleteQuote( isExpired:any, index:number){
-  //   if( isExpired){
-  //     let deletequote = confirm(`You about to delete this quote, Proceed? ${this.quotes[index].quote}`)
-  //     if(deletequote){
-  //       this.quotes.splice(index,1)
-  //     }
-  //   }
-  // }
+  countvotes:number =0;
+  countDownvotes:number =0;
 
   addQuote(quote:Quot){
     let quoteLength = this.quotes.length;
@@ -28,7 +20,36 @@ export class QuoteComponent implements OnInit {
     this.quotes.push(quote)
     console.log(quote)
   }
+
+  deleteQuote( isExpired:any, index:number){
+    
+    if( isExpired){
+      let deletequote = confirm(`You about to delete this quote, Proceed? ${this.quotes[index].quote}`)
+      if(deletequote){
+        this.quotes.splice(index,1)
+      }
+    }
+  }
+
+  showHideQuoteDetails(qIndex:number){
+      this.quotes[qIndex].quoteDetails= !this.quotes[qIndex].quoteDetails;
+      
+      //  if( this.quotes.indexOf(quote) >=0){
+      //    this.quotes[this.quotes.indexOf(quote)].quoteDetails =show;
+      //  }else{
+      //    this.quotes[this.quotes.indexOf(quote)].quoteDetails =false;
+      //  }
+        
+  }
   
+  upvote(id:number){
+    // this.countvotes +=1
+    this.quotes[id].upvotes +=1
+  }
+  downvote(id:number){
+    // this.countDownvotes -=1
+    this.quotes[id].downvotes -=1
+  }
 
   constructor(  quoteService: MyquotesService
     

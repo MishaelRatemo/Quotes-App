@@ -1,1 +1,11 @@
-<p>quote-details works!</p>
+<!-- <p>quote-details works!</p> -->
+
+<p class="d-flex justify-content-between">
+    <span>Submitted by: {{ myquote.submittedBy }} On
+        {{ myquote.createdAt | date: "mediumDate" }}
+    </span>
+
+    <span (click)="quoteDelete(true)" class="btn btn-danger">
+        <i class="fa fa-trash fa-2x btn-danger" aria-hidden="true"></i>
+    </span>
+</p>
