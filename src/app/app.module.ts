@@ -11,6 +11,7 @@ import { HighesUpvoteHighlighterDirective } from './directives/highes-upvote-hig
 import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     QuoteFormComponent,
     TimeCounterPipe,
     HighesUpvoteHighlighterDirective,
-    TopBarComponent
+    TopBarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

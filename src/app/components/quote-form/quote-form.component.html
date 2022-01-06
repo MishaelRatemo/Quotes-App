@@ -11,10 +11,10 @@
     <label for="" class=" form-label"> Your Name</label>
     <input type="text" class="form-control" id='name' name="name" [(ngModel)]='newQuote.submittedBy' #name='ngModel'>
     <!-- name: {{newQuote.submittedBy}} <br> -->
-    <label for="" class='form-label'> Choose date</label>
-    <input type="date" name="createdAt" id="date" [(ngModel)]='newQuote.createdAt' >
+    <!-- <label for="" class='form-label'> Choose date</label> -->
+    <input type="hidden" name="createdAt" id="date" [(ngModel)]='newQuote.createdAt' >
     <!-- date: {{newQuote.createdAt |date }} <br> -->
-    <input type="submit"  value="Add quote" class="btn btn-info form-control w-25 ">
+    <input type="submit"  value="Add quote" class="btn btn-success form-control w-25 ">
     <!-- <input type="reset" class=" btn btn-dark" (click)="quoteForm.clear()"> -->
 
 </form>
