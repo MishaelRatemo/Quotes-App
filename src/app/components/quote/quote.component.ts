@@ -46,9 +46,9 @@ export class QuoteComponent implements OnInit {
     // this.countvotes +=1
     this.quotes[id].upvotes +=1
   }
-  downvote(id:number){
+  downvote(did:number){
     // this.countDownvotes -=1
-    this.quotes[id].downvotes +=1
+    this.quotes[did].downvotes +=1
   }
 
   constructor(  quoteService: MyquotesService
