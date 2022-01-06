@@ -25,7 +25,7 @@ export class QuoteFormComponent implements OnInit {
     this.addNewQuote.emit(this.newQuote);
     // console.log(this.newQuote)
   }
-
+ 
 
 
   /*constructor( 

@@ -7,7 +7,7 @@
             <hr> {{myQuote.upvotes}}
         </button>
         <div>
-            <p> {{ myQuote.quote}} <i> <br> By {{myQuote.quoteAuthor}} </i> </p>
+            <p> {{ myQuote.quote}} <i> <br> By {{myQuote.quoteAuthor}} </i> <span class="text-success"> Posted {{myQuote.createdAt| timeCounter}} ago</span> </p>
             <!-- <p class=" d-flex justify-content-between p-1"> 
 
                 <span>Submitted by: {{myQuote.submittedBy}}</span>
