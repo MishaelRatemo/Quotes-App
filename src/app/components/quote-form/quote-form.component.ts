@@ -15,15 +15,17 @@ export class QuoteFormComponent implements OnInit {
   newQuote = new Quot(0, "","",0,0, new Date(),"")
   @Output() addNewQuote = new EventEmitter<Quot>();
 
-  // newQuoteForm = new FormGroup({
-  //   qoute: new FormControl('',Validators.required),
-  //   name1: new FormControl('',Validators.required)
+  newQuoteForm = new FormGroup({
+    qoute: new FormControl('',Validators.required),
+    name1: new FormControl('',Validators.required)
 
-  // })
+  })
 
   createQuote(){
     this.addNewQuote.emit(this.newQuote);
     // console.log(this.newQuote)
+    this.newQuote = new Quot(0, "","",0,0, new Date(),"")
+    this.newQuoteForm.reset();
   }
  
 
