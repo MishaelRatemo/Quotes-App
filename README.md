@@ -6,7 +6,7 @@
 - This is a web app that has initial quotes from famous authors. in this application the user is able to Add a new quote to the existing one through a form, delete existing or created quote.
 The user is also able to do an upvote /downvote to the available quotes including the  newly added quotes.
 
-## Live Demo if The App
+## Live Demo 
  Click [here](https://mishaelquoteapp.netlify.app/) to view
 
 ##  Technolgies used
