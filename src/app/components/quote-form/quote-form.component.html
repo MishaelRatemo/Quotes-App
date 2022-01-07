@@ -1,9 +1,11 @@
-<h4>Add your quote</h4>
-<form  (ngSubmit)="createQuote()" #quoteForm='ngForm'  class=" mb-4">
+
+<form  (ngSubmit)="createQuote()" #quoteForm='ngForm'  class=" mb-4 m-auto w-75 bg-light">
+    <fieldset class=" border-success p-2">
+        <legend><h4 class='p-2' >Add your quote</h4> </legend>
     <label for="quote" class=" form-label"> Your quote</label>
     <textarea name="quote" id="quote" [(ngModel)]="newQuote.quote" #quote='ngModel' class=" form-control" cols="10" rows="3" required></textarea>
     <!-- quote: {{newQuote.quote}} <br> -->
-    <p [hidden]="quote.valid || quote.pristine" class='alert alert-danger' ></p>
+    <!-- <p [hidden]="quote.valid || quote.pristine" class='alert alert-danger' > Quote is required</p> -->
 
     <label for="" class='form-label'>Quote Auther</label>
     <input type="text" class=" form-control"  id='quoteAuthor' name='quoteAuthor' [(ngModel)]='newQuote.quoteAuthor' #quoteAuthor='ngModel'>
@@ -16,5 +18,6 @@
     <!-- date: {{newQuote.createdAt |date }} <br> -->
     <input type="submit"  value="Add quote" class="btn btn-success form-control w-25 ">
     <!-- <input type="reset" class=" btn btn-dark" (click)="quoteForm.reset()"> -->
+</fieldset>
 
 </form>
