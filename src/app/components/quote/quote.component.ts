@@ -10,8 +10,8 @@ import { MyquotesService } from 'src/app/services/myquotes.service';
 export class QuoteComponent implements OnInit {
 
   quotes : Quot[];
-  countvotes:number =0;
-  countDownvotes:number =0;
+  lastcount:number =0;
+  currentcount:number =0;
 
   addQuote(quote:Quot){
     let quoteLength = this.quotes.length;
@@ -50,6 +50,21 @@ export class QuoteComponent implements OnInit {
     // this.countDownvotes -=1
     this.quotes[did].downvotes +=1
   }
+
+ 
+
+  highest_vote_lighter(){
+    for( let counter:number =0; counter < this.quotes.length; counter++){
+      this.lastcount = this.quotes[counter].upvotes;
+      
+      if (this.lastcount > this.currentcount){
+        this.currentcount= this.lastcount
+      }      
+    }
+    return this.currentcount
+  }
+
+
 
   constructor(  quoteService: MyquotesService
     

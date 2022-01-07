@@ -6,22 +6,26 @@
             <hr> Upvote
             <hr> {{myQuote.upvotes}}
         </button>
-        <div>
-            <p> {{ myQuote.quote}} <i> <br> By {{myQuote.quoteAuthor}} </i> <span class="text-success"> Posted {{myQuote.createdAt| timeCounter}} ago</span> </p>
-            <!-- <p class=" d-flex justify-content-between p-1"> 
-
-                <span>Submitted by: {{myQuote.submittedBy}}</span>
-
-                <span>Submitted by: {{myQuote.submittedBy}} On {{ myQuote.createdAt | date:'mediumDate' }}</span>
-               <span class="btn btn-danger"  >
-                    <i class="fa fa-trash fa-2x btn-danger" aria-hidden="true"></i>
-               </span>
-            </p> -->
+        <div appHighesUpvoteHighlighter *ngIf="highest_vote_lighter()=== myQuote.upvotes && myQuote.upvotes >0" > <!-- this highlights the quote based on upvotes count-->
+            <p > 
+                {{ myQuote.quote}} <i> <br> By {{myQuote.quoteAuthor}} </i> <span class="text-success"> Posted {{myQuote.createdAt| timeCounter}} ago</span> 
+            </p>
+           
             <button (click)='showHideQuoteDetails(i)' class=" btn text-primary">Details...</button>
             <app-quote-details *ngIf='myQuote.quoteDetails' [myquote]="myQuote" (isExpired)="deleteQuote($event,i)">
             </app-quote-details>
-
         </div>
+        
+        <div *ngIf="highest_vote_lighter()!==myQuote.upvotes || myQuote.upvotes===0" > <!-- this dehighlight the quote based on votes -->
+            <p > 
+                {{ myQuote.quote}} <i> <br> By {{myQuote.quoteAuthor}} </i> <span class="text-success"> Posted {{myQuote.createdAt| timeCounter}} ago</span> 
+            </p>
+            
+            <button (click)='showHideQuoteDetails(i)' class=" btn text-primary">Details...</button>
+            <app-quote-details *ngIf='myQuote.quoteDetails' [myquote]="myQuote" (isExpired)="deleteQuote($event,i)">
+            </app-quote-details>
+        </div>
+       
         <button class=" btn btn-secondary" (click)="downvote(i)">{{myQuote.downvotes}}
             <hr> Downvote <br><i class="fa fa-angle-down fa-2x" aria-hidden="true"></i>
         </button>
